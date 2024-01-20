@@ -7,7 +7,7 @@ def hello_world(request):
     return HttpResponse(f"Oh, hi current server time is: {now}")
 
 
-def hi(request: HttpRequest):
+def sort_numbers(request: HttpRequest):
     query_set = request.GET
     try:
         numbers = list(eval(query_set.get("numbers", '')))
@@ -22,3 +22,11 @@ def hi(request: HttpRequest):
         return JsonResponse(data, content_type="application/json")
     except TypeError:
         return HttpResponse("Empty list")
+
+
+def say_hi(request, name, age):
+    if age <= 12:
+        message = f"Sorry {name}, you are not allowed to use this until 13"
+    else:
+        message = f"Hi {name}, you are welcome"
+    return HttpResponse(message)

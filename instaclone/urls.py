@@ -13,8 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import path
 
 from instaclone import views as insta_views
@@ -22,5 +20,6 @@ from instaclone import views as insta_views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('hello-world/', insta_views.hello_world),
-    path('hi/', insta_views.hi),
+    path('sort-numbers/', insta_views.sort_numbers),
+    path('hi/<str:name>/<int:age>/', insta_views.say_hi),
 ]
