@@ -16,10 +16,13 @@ Including another URLconf
 from django.urls import path
 
 from instaclone import views as insta_views
-
+from posts import views as posts_views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('hello-world/', insta_views.hello_world),
     path('sort-numbers/', insta_views.sort_numbers),
     path('hi/<str:name>/<int:age>/', insta_views.say_hi),
+
+    path('posts/', posts_views.list_posts)
+
 ]
